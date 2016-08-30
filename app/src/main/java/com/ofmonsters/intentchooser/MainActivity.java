@@ -8,6 +8,7 @@ import android.view.View;
 import com.tuanchauict.intentchooser.SharePlainTextChooser;
 import com.tuanchauict.intentchooser.sharetext.EmailChooser;
 import com.tuanchauict.intentchooser.sharetext.FacebookChooser;
+import com.tuanchauict.intentchooser.sharetext.FacebookMessengerChooser;
 import com.tuanchauict.intentchooser.sharetext.GooglePlusChooser;
 import com.tuanchauict.intentchooser.sharetext.SMSChooser;
 import com.tuanchauict.intentchooser.sharetext.TwitterChooser;
@@ -28,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
                         .add(new TwitterChooser("This is text for twitter"))
                         .add(new GooglePlusChooser("This is a text: http://google.com"))
                         .add(new EmailChooser("Email subject", "Email body"))
-                        .add(new UniversalChooser("Universal Text"))
+                        .add(new FacebookMessengerChooser("Facebook messenger"))
+                        .add(new UniversalChooser("Universal subject", "Universal Text"))
                         .create("Share To");
                 startActivity(intent);
             }

@@ -38,13 +38,13 @@ public class SMSChooser implements Chooser {
         result.add(new Pair<String, Intent>(pkg, intent));
 
         //get all sms package for excluding purpose
-        Intent excludingIntent = new Intent(Intent.ACTION_SENDTO);
-        excludingIntent.setData(Uri.parse("sms:"));
-        List<ResolveInfo> l = pm.queryIntentActivities(excludingIntent, 0);
-        System.out.println("sms size = " + l.size());
-        for (ResolveInfo r : l) {
-            result.add(new Pair<String, Intent>(r.activityInfo.packageName, null));
-        }
+//        Intent excludingIntent = new Intent(Intent.ACTION_SENDTO);
+//        excludingIntent.setData(Uri.parse("sms:"));
+//        List<ResolveInfo> l = pm.queryIntentActivities(excludingIntent, 0);
+//        System.out.println("sms size = " + l.size());
+//        for (ResolveInfo r : l) {
+//            result.add(new Pair<String, Intent>(r.activityInfo.packageName, null));
+//        }
 
         return result;
     }

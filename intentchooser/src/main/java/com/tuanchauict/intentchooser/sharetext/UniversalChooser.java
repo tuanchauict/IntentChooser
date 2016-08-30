@@ -19,9 +19,10 @@ import java.util.List;
  */
 public class UniversalChooser implements Chooser {
 
+    private String mSubject;
     private String mText;
 
-    public UniversalChooser(String text){
+    public UniversalChooser(String subject, String text){
         mText = text;
     }
 
@@ -39,6 +40,8 @@ public class UniversalChooser implements Chooser {
                 Intent in = new Intent(Intent.ACTION_SEND);
                 in.setComponent(new ComponentName(info.packageName, info.name));
                 in.setPackage(info.packageName);
+                in.putExtra(Intent.EXTRA_SUBJECT, mSubject);
+                in.putExtra(Intent.EXTRA_TITLE, mSubject);
                 in.putExtra(Intent.EXTRA_TEXT, mText);
                 Pair<String, Intent> p = new Pair<>(info.packageName, in);
                 result.add(p);
