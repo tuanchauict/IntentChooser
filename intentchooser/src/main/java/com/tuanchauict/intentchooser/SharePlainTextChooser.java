@@ -102,17 +102,7 @@ public class SharePlainTextChooser {
             return null;
         }
 
-        Intent target;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            target = new Intent();
-        } else {
-            target = intents.get(intents.size() - 1);
-            mList.remove(intents.size() - 1);
-        }
-
-        Intent intent = Intent.createChooser(target, title);
-        intent.putExtra(Intent.EXTRA_INITIAL_INTENTS, intents.toArray(new Parcelable[intents.size()]));
-        return intent;
+        return Utils.createChooserIntent(intents, title);
     }
 
 
