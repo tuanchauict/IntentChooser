@@ -98,10 +98,6 @@ public class SharePlainTextChooser {
             }
         }
 
-        if (intents.isEmpty()) {
-            return null;
-        }
-
         return Utils.createChooserIntent(intents, title);
     }
 

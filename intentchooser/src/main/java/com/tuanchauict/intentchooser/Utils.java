@@ -21,6 +21,9 @@ public class Utils {
     }
 
     public static Intent createChooserIntent(List<Intent> intents, String title) {
+        if(intents == null || intents.isEmpty()){
+            return null;
+        }
         Intent target;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             target = new Intent();
