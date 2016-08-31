@@ -2,5 +2,5 @@
 
 # Installation
 
-    compile 'com.tuanchauict.intentchooser:intentchooser:0.1.1'
+    compile 'com.tuanchauict.intentchooser:intentchooser:0.1.2'
 
