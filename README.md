@@ -12,7 +12,7 @@ Add this to your module's `build.gralde`
     }
 
     dependencies{
-        compile 'com.tuanchauict.intentchooser:intentchooser:0.1.2'
+        compile 'com.tuanchauict.intentchooser:intentchooser:0.1.3'
     }
 
 # Usage

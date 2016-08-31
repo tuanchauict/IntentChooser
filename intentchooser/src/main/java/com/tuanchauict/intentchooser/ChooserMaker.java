@@ -82,7 +82,8 @@ public abstract class ChooserMaker<T extends ChooserMaker.Chooser> {
                             l.add(p.second);
                         excluded.add(p.first);
                     }
-                    map.put(chooser, l);
+                    if (!l.isEmpty())
+                        map.put(chooser, l);
                 }
             }
             List<Pair<String, Intent>> ps = universalChooser.getIntents(mContext, pm, excluded);
@@ -93,11 +94,14 @@ public abstract class ChooserMaker<T extends ChooserMaker.Chooser> {
                         l.add(p.second);
                     excluded.add(p.first);
                 }
-                map.put(universalChooser, l);
+                if (!l.isEmpty())
+                    map.put(universalChooser, l);
             }
 
             for (Chooser chooser : mList) {
-                intents.addAll(map.get(chooser));
+                List<Intent> l = map.get(chooser);
+                if (l != null && !l.isEmpty())
+                    intents.addAll(map.get(chooser));
             }
         }
 
