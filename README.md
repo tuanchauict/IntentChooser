@@ -2,6 +2,7 @@ Simple way to make an intent chooser.
 
 
 # Installation
+Add this to your module's `build.gralde`
 
     repositories {
         maven {
@@ -9,6 +10,6 @@ Simple way to make an intent chooser.
         }
     }
 
-
-    compile 'com.tuanchauict.intentchooser:intentchooser:0.1.2'
-
+    dependencies{
+        compile 'com.tuanchauict.intentchooser:intentchooser:0.1.2'
+    }
