@@ -11,10 +11,10 @@
     tools:context="com.ofmonsters.intentchooser.MainActivity"
     >
     <Button
-        android:id="@+id/clickme"
+        android:id="@+id/btn_share_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Click Me"
+        android:text="Share Plain Text"
         android:layout_centerInParent="true"
         />
 </RelativeLayout>

@@ -1,7 +1,7 @@
 package com.ofmonsters.intentchooser;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
@@ -13,14 +13,15 @@ import com.tuanchauict.intentchooser.sharetext.GooglePlusChooser;
 import com.tuanchauict.intentchooser.sharetext.SMSChooser;
 import com.tuanchauict.intentchooser.sharetext.TwitterChooser;
 import com.tuanchauict.intentchooser.sharetext.UniversalChooser;
+import com.tuanchauict.intentchooser.sharetext.ViberChooser;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.clickme).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_share_text).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = SharePlainTextChooser.newChooser(MainActivity.this)
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
                         .add(new GooglePlusChooser("This is a text: http://google.com"))
                         .add(new EmailChooser("Email subject", "Email body"))
                         .add(new FacebookMessengerChooser("Facebook messenger"))
+                        .add(new ViberChooser("Viber message"))
                         .add(new UniversalChooser("Universal subject", "Universal Text"))
                         .create("Share To");
                 startActivity(intent);
