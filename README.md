@@ -1,5 +1,6 @@
 Simple way to make an intent chooser.
 
+[](screenshots/share_text.png)
 
 # Installation
 Add this to your module's `build.gralde`
