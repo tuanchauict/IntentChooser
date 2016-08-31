@@ -14,8 +14,6 @@ import java.util.List;
 
 /**
  * Created by tuanchauict on 8/30/16.
- * <br/>
- *
  */
 public class UniversalChooser implements Chooser {
 
