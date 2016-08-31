@@ -11,9 +11,11 @@ import com.tuanchauict.intentchooser.sharetext.FacebookChooser;
 import com.tuanchauict.intentchooser.sharetext.FacebookMessengerChooser;
 import com.tuanchauict.intentchooser.sharetext.GooglePlusChooser;
 import com.tuanchauict.intentchooser.sharetext.SMSChooser;
+import com.tuanchauict.intentchooser.sharetext.SkypeChooser;
 import com.tuanchauict.intentchooser.sharetext.TwitterChooser;
 import com.tuanchauict.intentchooser.sharetext.UniversalChooser;
 import com.tuanchauict.intentchooser.sharetext.ViberChooser;
+import com.tuanchauict.intentchooser.sharetext.WhatAppChooser;
 
 public class MainActivity extends Activity {
 
@@ -29,6 +31,8 @@ public class MainActivity extends Activity {
                         .add(new FacebookChooser("https://google.com", false))
                         .add(new TwitterChooser("This is text for twitter"))
                         .add(new GooglePlusChooser("This is a text: http://google.com"))
+                        .add(new WhatAppChooser("WhatApp text"))
+                        .add(new SkypeChooser("Skype text"))
                         .add(new EmailChooser("Email subject", "Email body"))
                         .add(new FacebookMessengerChooser("Facebook messenger"))
                         .add(new ViberChooser("Viber message"))

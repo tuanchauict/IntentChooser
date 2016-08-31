@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by tuanchauict on 8/30/16.
  */
-public class GooglePlusChooser implements ShareTextChooser {
+public class GooglePlusChooser extends AbstractSpecifiedAppChooser {
     static final String GOOGLE_PLUS_PACKAGE = "com.google.android.apps.plus";
     static final String GOOGLE_PLUS_NAME = "com.google.android.libraries.social.gateway.GatewayActivity";
 
@@ -26,17 +26,17 @@ public class GooglePlusChooser implements ShareTextChooser {
     }
 
     @Override
-    public List<Pair<String, Intent>> getIntents(Context context, PackageManager pm, Collection<String> excludedPackages) {
+    protected String getAppPackage() {
+        return GOOGLE_PLUS_PACKAGE;
+    }
 
-        if (Utils.isPackageInstalled(pm, GOOGLE_PLUS_PACKAGE)) {
-            Intent intent = new Intent(Intent.ACTION_SEND);
-            intent.setType("text/plain");
-            intent.setComponent(new ComponentName(GOOGLE_PLUS_PACKAGE, GOOGLE_PLUS_NAME));
-            intent.setPackage(GOOGLE_PLUS_PACKAGE);
-            intent.putExtra(Intent.EXTRA_TEXT, mText);
+    @Override
+    protected String getActivityName() {
+        return GOOGLE_PLUS_NAME;
+    }
 
-            return Arrays.asList(new Pair<String, Intent>(GOOGLE_PLUS_PACKAGE, intent));
-        }
-        return null;
+    @Override
+    protected void putExtra(Intent intent) {
+        intent.putExtra(Intent.EXTRA_TEXT, mText);
     }
 }
