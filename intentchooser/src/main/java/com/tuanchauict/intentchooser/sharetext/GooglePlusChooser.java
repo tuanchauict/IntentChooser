@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by tuanchauict on 8/30/16.
  */
-public class GooglePlusChooser implements Chooser {
+public class GooglePlusChooser implements ShareTextChooser {
     static final String GOOGLE_PLUS_PACKAGE = "com.google.android.apps.plus";
     static final String GOOGLE_PLUS_NAME = "com.google.android.libraries.social.gateway.GatewayActivity";
 

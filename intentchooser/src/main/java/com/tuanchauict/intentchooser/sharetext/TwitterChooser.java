@@ -4,7 +4,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.util.Pair;
 
 import com.tuanchauict.intentchooser.Utils;
@@ -16,7 +15,7 @@ import java.util.List;
 /**
  * Created by tuanchauict on 8/30/16.
  */
-public class TwitterChooser implements Chooser {
+public class TwitterChooser implements ShareTextChooser {
     static final String TWITTER_PACKAGE = "com.twitter.android";
     static final String TWITTER_NAME = "com.twitter.android.composer.ComposerActivity";
 

@@ -3,9 +3,7 @@ package com.tuanchauict.intentchooser.sharetext;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.util.Pair;
 
 import com.tuanchauict.intentchooser.Utils;
@@ -17,7 +15,7 @@ import java.util.List;
 /**
  * Created by tuanchauict on 8/30/16.
  */
-public class FacebookChooser implements Chooser {
+public class FacebookChooser implements ShareTextChooser {
     final static String FACEBOOK_PACKAGE = "com.facebook.katana";
     final static String FACEBOOK_SHARE_NAME = "com.facebook.composer.shareintent.ImplicitShareIntentHandlerDefaultAlias";
     final static String FACEBOOK_SAVE_NAME = "com.facebook.saved.intentfilter.SaveIconSaveToFacebookAlias";

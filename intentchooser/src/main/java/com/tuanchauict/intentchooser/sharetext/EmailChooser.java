@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by tuanchauict on 8/30/16.
  */
-public class EmailChooser implements Chooser {
+public class EmailChooser implements ShareTextChooser {
     String mSubject;
     String mBody;
 

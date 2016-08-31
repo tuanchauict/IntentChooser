@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by tuanchauict on 8/30/16.
  */
-public class UniversalChooser implements Chooser {
+public class UniversalChooser implements ShareTextChooser {
 
     private String mSubject;
     private String mText;
