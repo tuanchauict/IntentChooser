@@ -1,11 +1,6 @@
 package com.tuanchauict.intentchooser;
 
-import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.Parcelable;
-
-import java.util.List;
 
 /**
  * Created by tuanchauict on 8/30/16.
@@ -20,20 +15,5 @@ public class Utils {
         }
     }
 
-    public static Intent createChooserIntent(List<Intent> intents, String title) {
-        if(intents == null || intents.isEmpty()){
-            return null;
-        }
-        Intent target;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            target = new Intent();
-        } else {
-            target = intents.get(intents.size() - 1);
-            intents.remove(intents.size() - 1);
-        }
 
-        Intent intent = Intent.createChooser(target, title);
-        intent.putExtra(Intent.EXTRA_INITIAL_INTENTS, intents.toArray(new Parcelable[intents.size()]));
-        return intent;
-    }
 }
