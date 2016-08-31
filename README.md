@@ -1,6 +1,6 @@
 Simple way to make an intent chooser.
 
-[](https://github.com/tuanchauict/IntentChooser/blob/master/screenshots/share_text.png?raw=true)
+![](https://github.com/tuanchauict/IntentChooser/blob/master/screenshots/share_text.png?raw=true)
 
 # Installation
 Add this to your module's `build.gralde`
