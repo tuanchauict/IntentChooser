@@ -32,6 +32,7 @@ public abstract class ChooserMaker<T extends ChooserMaker.Chooser> {
 
     private List<T> mList;
     private Context mContext;
+    private Set<String> mExcludedPackage = new HashSet<>();
 
     protected ChooserMaker(Context context) {
         mContext = context;
@@ -40,6 +41,11 @@ public abstract class ChooserMaker<T extends ChooserMaker.Chooser> {
 
     public ChooserMaker<T> add(T chooser) {
         mList.add(chooser);
+        return this;
+    }
+
+    public ChooserMaker<T> exclude(String pkg) {
+        mExcludedPackage.add(pkg);
         return this;
     }
 
@@ -52,8 +58,10 @@ public abstract class ChooserMaker<T extends ChooserMaker.Chooser> {
         }
 
         PackageManager pm = mContext.getPackageManager();
-
         Set<String> excluded = new HashSet<>();
+        if (!mExcludedPackage.isEmpty())
+            excluded.addAll(mExcludedPackage);
+
         List<Intent> intents = new ArrayList<>();
 
         if (universalChooser == null) {
