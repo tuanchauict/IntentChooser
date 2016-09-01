@@ -3,21 +3,13 @@ Simple way to make an intent chooser.
 ![](https://github.com/tuanchauict/IntentChooser/blob/master/screenshots/share_text.png?raw=true)
 
 # Installation
-Add this to your module's `build.gralde`
 
-    repositories {
-        maven {
-            url  "http://dl.bintray.com/tuanchauict/maven"
-        }
-    }
+    compile 'com.tuanchauict.intentchooser:intentchooser:0.1.+'
 
-    dependencies{
-        compile 'com.tuanchauict.intentchooser:intentchooser:0.1.3'
-    }
 
 # Usage
 
-    Intent intent = SharePlainTextChooser.newChooser(MainActivity.this)
+    Intent intent = SharePlainTextChooserMaker.newChooser(MainActivity.this)
                             .add(new SMSChooser("SMS"))
                             .add(new FacebookChooser("https://google.com", false))
                             .add(new TwitterChooser("This is text for twitter"))
@@ -28,3 +20,5 @@ Add this to your module's `build.gralde`
                             .add(new UniversalChooser("Universal subject", "Universal Text"))
                             .create("Share To");
     startActivity(intent);
+
+For Image selection, please take a look at example app's MainActivity
