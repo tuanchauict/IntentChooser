@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.tuanchauict.intentchooser.SharePlainTextChooser;
+import com.tuanchauict.intentchooser.SharePlainTextChooserMaker;
 import com.tuanchauict.intentchooser.sharetext.EmailChooser;
 import com.tuanchauict.intentchooser.sharetext.FacebookChooser;
 import com.tuanchauict.intentchooser.sharetext.FacebookMessengerChooser;
@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
         findViewById(R.id.btn_share_text).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = SharePlainTextChooser.newChooser(MainActivity.this)
+                Intent intent = SharePlainTextChooserMaker.newChooser(MainActivity.this)
                         .add(new SMSChooser("SMS"))
                         .add(new FacebookChooser("https://google.com", false))
                         .add(new TwitterChooser("This is text for twitter"))
