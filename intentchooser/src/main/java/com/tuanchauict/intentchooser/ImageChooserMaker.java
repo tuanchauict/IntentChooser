@@ -48,13 +48,9 @@ public class ImageChooserMaker extends ChooserMaker<SelectImageChooser> {
         }
     }
 
-    /**
-     * Should call this for getting image uri from result intent, especially on getting image from camera.
-     *
-     * @param context
-     * @param data
-     * @return
-     */
+//    /**
+//     * Should call this for getting image uri from result intent, especially on getting image from camera.
+//     */
     public static Uri getPickImageResultUri(Context context, Intent data) {
         boolean isCamera = true;
         if (data != null && data.getData() != null) {
@@ -64,11 +60,9 @@ public class ImageChooserMaker extends ChooserMaker<SelectImageChooser> {
         return isCamera || data.getData() == null ? getCaptureImageOutputUri(context) : data.getData();
     }
 
-    /**
-     * Get URI to image received from capture  by camera.
-     *
-     * @param context used to access Android APIs, like content resolve, it is your activity/fragment/widget.
-     */
+//    /**
+//     * Get URI to image received from capture  by camera.
+//     */
     private static Uri getCaptureImageOutputUri(Context context) {
         Uri outputFileUri = null;
         File getImage = context.getExternalCacheDir();
@@ -78,12 +72,6 @@ public class ImageChooserMaker extends ChooserMaker<SelectImageChooser> {
         return outputFileUri;
     }
 
-    /**
-     * Check if explicitly requesting camera permission is required.<br>
-     * It is required in Android M and above if "CAMERA" permission is requested in the manifest.<br>
-     * See <a href="http://stackoverflow.com/questions/32789027/android-m-camera-intent-permission-bug">StackOverflow
-     * question</a>.
-     */
     public static boolean isExplicitCameraPermissionRequired(Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             return hasPermissionInManifest(context, "android.permission.CAMERA") &&
@@ -92,12 +80,10 @@ public class ImageChooserMaker extends ChooserMaker<SelectImageChooser> {
         return false;
     }
 
-    /**
-     * Check if the app requests a specific permission in the manifest.
-     *
-     * @param permissionName the permission to check
-     * @return true - the permission in requested in manifest, false - not.
-     */
+//    /**
+//     * Check if the app requests a specific permission in the manifest.
+//     * @return true - the permission in requested in manifest, false - not.
+//     */
     public static boolean hasPermissionInManifest(Context context, String permissionName) {
         String packageName = context.getPackageName();
         try {

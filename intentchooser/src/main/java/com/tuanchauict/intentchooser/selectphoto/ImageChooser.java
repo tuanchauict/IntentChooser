@@ -19,11 +19,11 @@ import java.util.List;
 public class ImageChooser implements SelectImageChooser {
     boolean mPickMultipleImage;
 
-    /**
-     * pick multiple image only available for API >= 18
-     *
-     * @param pickMultipleImage
-     */
+//    /**
+//     * pick multiple image only available for API >= 18
+//     *
+//     * @param pickMultipleImage
+//     */
     public ImageChooser(boolean pickMultipleImage) {
         mPickMultipleImage = Build.VERSION.SDK_INT >= 18 ? pickMultipleImage : false;
     }

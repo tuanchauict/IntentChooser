@@ -96,9 +96,7 @@ public class MainActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_IMAGE_CHOOSER && resultCode == RESULT_OK) {
-            Uri imageUri = ImageChooserMaker.getPickImageResultUri(this, data);
-            System.out.println(imageUri.getPath());
+            List<Uri> imageUris = ImageChooserMaker.getPickMultipleImageResultUris(this, data);
         }
-
     }
 }
