@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = '0.1.6'
+version = '0.1.7'
 group = 'com.tuanchauict.intentchooser'
 
 def siteUrl = 'https://github.com/tuanchauict/IntentChooser'
@@ -16,7 +16,7 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 21
-        versionCode 7
+        versionCode 8
         versionName version
     }
 
