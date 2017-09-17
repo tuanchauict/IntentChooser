@@ -1,16 +1,6 @@
 package com.tuanchauict.intentchooser.sharetext;
 
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.util.Pair;
-
-import com.tuanchauict.intentchooser.Utils;
-
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
 
 /**
  * Created by tuanchauict on 8/30/16.
