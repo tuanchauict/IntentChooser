@@ -25,7 +25,7 @@ public class ImageChooser implements SelectImageChooser {
 //     * @param pickMultipleImage
 //     */
     public ImageChooser(boolean pickMultipleImage) {
-        mPickMultipleImage = Build.VERSION.SDK_INT >= 18 ? pickMultipleImage : false;
+        mPickMultipleImage = Build.VERSION.SDK_INT >= 18 && pickMultipleImage;
     }
 
     public ImageChooser() {
@@ -49,7 +49,7 @@ public class ImageChooser implements SelectImageChooser {
             if (mPickMultipleImage)
                 intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, mPickMultipleImage);
 
-            result.add(new Pair<String, Intent>(info.packageName, intent));
+            result.add(new Pair<>(info.packageName, intent));
         }
 
         return result;

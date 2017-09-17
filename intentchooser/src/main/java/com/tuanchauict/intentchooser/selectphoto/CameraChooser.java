@@ -55,7 +55,7 @@ public class CameraChooser implements SelectImageChooser {
         Uri outputFileUri = null;
         File getImage = context.getExternalCacheDir();
         if (getImage != null) {
-            outputFileUri = Uri.fromFile(new File(getImage.getPath(), ImageChooserMaker.CAPTURED_IMAGE_NAME));
+            outputFileUri = Uri.fromFile(new File(getImage.getPath(), ImageChooserMaker.getCapturedImageName()));
         }
         return outputFileUri;
     }

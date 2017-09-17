@@ -22,7 +22,7 @@ import java.util.List;
  * Created by tuanchauict on 9/1/16.
  */
 public class ImageChooserMaker extends ChooserMaker<SelectImageChooser> {
-    public static final String CAPTURED_IMAGE_NAME = "capturedImageResult.jpeg";
+    private static String sCapturedImageName = "capturedImageResult.jpeg";
 
     public static ImageChooserMaker newChooser(Context context) {
         ImageChooserMaker chooser = new ImageChooserMaker(context);
@@ -67,7 +67,7 @@ public class ImageChooserMaker extends ChooserMaker<SelectImageChooser> {
         Uri outputFileUri = null;
         File getImage = context.getExternalCacheDir();
         if (getImage != null) {
-            outputFileUri = Uri.fromFile(new File(getImage.getPath(), CAPTURED_IMAGE_NAME));
+            outputFileUri = Uri.fromFile(new File(getImage.getPath(), sCapturedImageName));
         }
         return outputFileUri;
     }
@@ -99,5 +99,15 @@ public class ImageChooserMaker extends ChooserMaker<SelectImageChooser> {
         } catch (PackageManager.NameNotFoundException e) {
         }
         return false;
+    }
+
+    public static String getCapturedImageName() {
+        return sCapturedImageName;
+    }
+
+    public static void setCapturedImageName(String capturedImageName) {
+        if (capturedImageName == null || capturedImageName.isEmpty())
+            throw new IllegalStateException("capturedImageName must not be empty");
+        sCapturedImageName = capturedImageName;
     }
 }
