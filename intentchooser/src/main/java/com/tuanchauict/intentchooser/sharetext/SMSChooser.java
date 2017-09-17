@@ -1,10 +1,9 @@
 package com.tuanchauict.intentchooser.sharetext;
 
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.provider.Settings;
 import android.util.Pair;
 
@@ -24,23 +23,17 @@ public class SMSChooser implements ShareTextChooser {
 
     @Override
     public List<Pair<String, Intent>> getIntents(Context context, PackageManager pm, Collection<String> excludedPackages) {
-        String defApp = Settings.Secure.getString(context.getContentResolver(), "sms_default_application");
-        Intent defIntent = pm.getLaunchIntentForPackage(defApp);
-        ResolveInfo info = pm.resolveActivity(defIntent, 0);
-        if(info == null){
-            return null;
-        }
 
-        String pkg = info.activityInfo.packageName;
+        String defApp = Settings.Secure.getString(context.getContentResolver(),
+                "sms_default_application");
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("smsto:"));
+        if (defApp != null && !defApp.isEmpty())
+            intent.setPackage(defApp);
+        intent.putExtra("sms_body", mText);
 
         List<Pair<String, Intent>> result = new ArrayList<>();
-
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setComponent(new ComponentName(pkg, info.activityInfo.name));
-        intent.setPackage(pkg);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, mText);
-        result.add(new Pair<String, Intent>(pkg, intent));
+        result.add(new Pair<>(defApp, intent));
 
         return result;
     }
