@@ -34,12 +34,15 @@ public class ImageChooserMaker extends ChooserMaker<SelectImageChooser> {
     }
 
     @TargetApi(18)
-    public static List<Uri> getPickMultipleImageResultUris(Context context, Intent data){
-        if(data.getClipData() != null){
+    public static List<Uri> getPickMultipleImageResultUris(Context context, Intent data) {
+        if (data == null)
+            return new ArrayList<>();
+
+        if (data.getClipData() != null) {
             ClipData clipData = data.getClipData();
             int length = clipData.getItemCount();
             List<Uri> result = new ArrayList<>(length);
-            for(int i = 0; i < length; i++){
+            for (int i = 0; i < length; i++) {
                 result.add(clipData.getItemAt(i).getUri());
             }
             return result;
@@ -48,7 +51,7 @@ public class ImageChooserMaker extends ChooserMaker<SelectImageChooser> {
         }
     }
 
-//    /**
+    //    /**
 //     * Should call this for getting image uri from result intent, especially on getting image from camera.
 //     */
     public static Uri getPickImageResultUri(Context context, Intent data) {
@@ -60,7 +63,7 @@ public class ImageChooserMaker extends ChooserMaker<SelectImageChooser> {
         return isCamera || data.getData() == null ? getCaptureImageOutputUri(context) : data.getData();
     }
 
-//    /**
+    //    /**
 //     * Get URI to image received from capture  by camera.
 //     */
     private static Uri getCaptureImageOutputUri(Context context) {
@@ -80,7 +83,7 @@ public class ImageChooserMaker extends ChooserMaker<SelectImageChooser> {
         return false;
     }
 
-//    /**
+    //    /**
 //     * Check if the app requests a specific permission in the manifest.
 //     * @return true - the permission in requested in manifest, false - not.
 //     */
